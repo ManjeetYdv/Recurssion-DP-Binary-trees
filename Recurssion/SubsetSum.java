@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class SubsetSum {
-
-    static void func(int[]arr , int idx , int sum , int N , ArrayList<Integer>subsetSum){
+ 
+     static void func(int[]arr , int idx , int sum , int N , ArrayList<Integer>subsetSum){
         if(idx==N){
             subsetSum.add(sum);
             return;
