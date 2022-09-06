@@ -14,6 +14,7 @@
  * }
  */
 class Solution {
+   
     
     public TreeNode pruneTree(TreeNode root) {
         
@@ -27,6 +28,46 @@ class Solution {
              
         }
         
+        return root;
+        
+    }
+}
+
+
+//Tedha h pr mera h :(
+class Solution {
+    
+     public static boolean helper(TreeNode root , TreeNode parent ){
+
+
+        if(root==null) return false;
+
+        boolean left = helper(root.left , root );
+        boolean right = helper(root.right , root);
+
+        if(left== false && right==false && root.val==0) {
+
+            if(parent.left==root){
+                parent.left=null;
+            }
+            else if(parent.right==root){
+                parent.right =null;
+            }
+        }
+        
+        if(root.val==1){
+            return true;
+        }
+        
+        return left || right;
+
+    }
+    public TreeNode pruneTree(TreeNode root) {
+        
+        boolean var = helper(root, root);
+        
+        if(var==false) return null;
+
         return root;
         
     }
